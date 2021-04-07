@@ -1,10 +1,10 @@
 from tkinter import *
-import random, sys
+import random
 from tkinter import messagebox
 
 root = Tk()
 root.title('Memory Puzzle')
-root.geometry("450x500")
+root.geometry("600x600")
 
 global winner
 winner = 0
@@ -18,6 +18,16 @@ my_frame.pack(pady=10)
 count = 0
 answer_list = []
 answer_dict = {}
+
+def reset():
+    global winner, matches
+    winner = 0
+    matches = [1,1,2,2,3,3,4,4,5,5,6,6]
+    random.shuffle(matches)
+    my_label.config(text="")
+    button_list = [b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11]
+    for button in button_list:
+        button.config(text=" ", bg="SystemButtonFace", state="normal")
 
 def win():
     my_label.config(text="Congratulations! You win!!")
@@ -54,44 +64,46 @@ def button_click(b, number):
                 key["text"] = " "
             answer_dict = {}
 
-b0 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b0, 0))
-b1 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b1, 1))
-b2 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b2, 2))
-b3 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b3, 3))
-b4 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b4, 4))
-b5 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b5, 5))
-b6 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b6, 6))
-b7 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b7, 7))
-b8 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b8, 8))
-b9 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b9, 9))
-b10 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b10, 10))
-b11 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b11, 11))
+b0 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b0, 0), relief='groove')
+b1 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b1, 1), relief='groove')
+b2 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b2, 2), relief='groove')
+b3 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b3, 3), relief='groove')
+b4 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b4, 4), relief='groove')
+b5 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b5, 5), relief='groove')
+b6 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b6, 6), relief='groove')
+b7 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b7, 7), relief='groove')
+b8 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b8, 8), relief='groove')
+b9 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b9, 9), relief='groove')
+b10 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b10, 10), relief='groove')
+b11 = Button(my_frame, text=' ', font=("Helvetica", 20), height=3, width=6, command=lambda: button_click(b11, 11), relief='groove')
 
-b0.grid(row=0, column=0)
-b1.grid(row=0, column=1)
-b2.grid(row=0, column=2)
-b3.grid(row=0, column=3)
+b0.grid(row=0,column=0)
+b1.grid(row=0,column=1)
+b2.grid(row=0,column=2)
+b3.grid(row=0,column=3)
 
-b4.grid(row=1, column=0)
-b5.grid(row=1, column=1)
-b6.grid(row=1, column=2)
-b7.grid(row=1, column=3)
+b4.grid(row=1,column=0)
+b5.grid(row=1,column=1)
+b6.grid(row=1,column=2)
+b7.grid(row=1,column=3)
 
-b8.grid(row=2, column=0)
-b9.grid(row=2, column=1)
-b10.grid(row=2, column=2)
-b11.grid(row=2, column=3)
+b8.grid(row=2,column=0)
+b9.grid(row=2,column=1)
+b10.grid(row=2,column=2)
+b11.grid(row=2,column=3)
 
-my_label = Label(root, text = "")
-my_label.pack(pady = 20)
+my_label = Label(root, text="")
+my_label.pack(pady=20)
 
 my_label2 = Label(root)
-my_label2.pack()
+my_label2.pack(pady=2)
 
-def button_click_close():
-    sys.exit()
+my_label3 = Label(root)
+my_label3.pack(pady=2)
 
-btclose = Button(my_label2, text="CLOSE", font=("Helvetica", 10), height=1, width=5, command=lambda: button_click_close)
-btclose.grid(row=0,column=0)
+btreset = Button(my_label2, text='Reset', font=("Helvetica", 15), height=2, width=5, command=reset)
+btreset.grid(row=0,column=0)
+btclose = Button(my_label2, text='Close', font=("Helvetica", 15), height=2, width=4, command=root.quit)
+btclose.grid(row=0,column=1)
 
 root.mainloop()

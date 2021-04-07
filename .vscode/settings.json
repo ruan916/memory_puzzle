@@ -3,6 +3,12 @@
     "cSpell.ignoreWords": [
         "af",
         "b",
-        "inet"
+        "btreset",
+        "dgram",
+        "inet",
+        "label",
+        "recvfrom",
+        "sendto",
+        "sock"
     ]
 }
