@@ -1,2 +1,2 @@
 # memory_puzzle
-A python game to play player versus player.
+A python memory puzzle player versus player, using the library Tkinter for interface and interaction, library random for randomize values inside the puzzle, and library socket for communication and administration server-client and puzzle.
